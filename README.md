@@ -8,7 +8,8 @@ you need to point a tool, a coding agent, or another person at one specific cell
 
 - A right-aligned status bar item on every cell: `⧉ #5 e66c99c5` (index + cell id).
 - Click it to copy the id.
-- Commands, from the Command Palette or a cell's `...` menu:
+- Commands from the Command Palette, acting on the selected cell (the extension adds
+  nothing to the cell toolbar or its `...` menu — those stay exactly as VS Code ships them):
   - **Notebook: Copy Cell Id** → `e66c99c5`
   - **Notebook: Copy Cell Id with Notebook Path** → `article_mat/v2_nb/step_3_.ipynb cell e66c99c5`
 

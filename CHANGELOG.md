@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.2] - 2026-08-13
+
+- Contribute nothing to the notebook cell menus. The cell toolbar and its `...` menu are
+  left exactly as VS Code ships them; the cell status bar item is the only added UI.
+  The commands remain available from the Command Palette.
+
 ## [0.1.1] - 2026-08-13
 
 - Move the copy commands out of the cell toolbar and into the cell's `...` overflow menu.

@@ -2,7 +2,7 @@
   "name": "notebook-cell-id",
   "displayName": "Notebook Cell Id",
   "description": "Shows each notebook cell's nbformat id in its status bar. Click to copy.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publisher": "hannody",
   "license": "MIT",
   "icon": "icon.png",
@@ -44,18 +44,6 @@
         "category": "Notebook"
       }
     ],
-    "menus": {
-      "notebook/cell/title": [
-        {
-          "command": "notebookCellId.copy",
-          "group": "notebookCellId@1"
-        },
-        {
-          "command": "notebookCellId.copyWithPath",
-          "group": "notebookCellId@2"
-        }
-      ]
-    },
     "configuration": {
       "title": "Notebook Cell Id",
       "properties": {

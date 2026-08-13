@@ -1,0 +1,84 @@
+{
+  "name": "notebook-cell-id",
+  "displayName": "Notebook Cell Id",
+  "description": "Shows each notebook cell's nbformat id in its status bar. Click to copy.",
+  "version": "0.1.0",
+  "publisher": "hannody",
+  "license": "MIT",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hannody/vscode-notebook-cell-id.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hannody/vscode-notebook-cell-id/issues"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Notebooks",
+    "Other"
+  ],
+  "keywords": [
+    "notebook",
+    "jupyter",
+    "ipynb",
+    "cell id",
+    "nbformat"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onNotebook:jupyter-notebook"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "notebookCellId.copy",
+        "title": "Copy Cell Id",
+        "category": "Notebook"
+      },
+      {
+        "command": "notebookCellId.copyWithPath",
+        "title": "Copy Cell Id with Notebook Path",
+        "category": "Notebook"
+      }
+    ],
+    "menus": {
+      "notebook/cell/title": [
+        {
+          "command": "notebookCellId.copy",
+          "group": "inline/copy@1"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Notebook Cell Id",
+      "properties": {
+        "notebookCellId.showStatusBarItem": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the cell id in each cell's status bar."
+        },
+        "notebookCellId.statusBarLabel": {
+          "type": "string",
+          "enum": [
+            "id",
+            "index-and-id",
+            "index"
+          ],
+          "default": "index-and-id",
+          "description": "What to display in the cell status bar."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0",
+    "@vscode/vsce": "^3.2.0"
+  }
+}

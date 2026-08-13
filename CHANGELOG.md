@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1] - 2026-08-13
+
+- Move the copy commands out of the cell toolbar and into the cell's `...` overflow menu.
+  They were contributed to the `inline` group, which rendered a button that collided with
+  VS Code's own run/split/delete actions.
+- Add `Copy Cell Id with Notebook Path` to that menu too.
+
 ## [0.1.0] - 2026-08-13
 
 Initial release.

@@ -10,7 +10,8 @@ Done:
 - Extension code (`extension.js`), manifest, icon, README, CHANGELOG, MIT LICENSE.
 - `.vscodeignore` so the `.vsix` ships only the runtime files.
 - `.vscode/launch.json` — <kbd>F5</kbd> opens an Extension Development Host.
-- Git repo initialised with an initial commit on `main`.
+- Git repo on `main`, pushed to **https://github.com/hannody/vscode-notebook-cell-id**,
+  which is **private** for now.
 - Symlinked into `~/.vscode/extensions/local.notebook-cell-id-0.0.1`, which is how it is
   running in your editor right now.
 
@@ -19,7 +20,6 @@ Not done, because it needs you:
 - **Node is not installed on this machine.** `vsce` is a Node CLI, so nothing was packaged
   or validated here. `sudo apt install nodejs npm` (Ubuntu ships v22, which is fine) or use
   nvm.
-- No GitHub remote exists yet.
 - `publisher` in `package.json` is set to `hannody` as a guess — it must match the
   Marketplace publisher you create, exactly.
 - No screenshot in the README. Worth adding before you publish; a single PNG of a cell
@@ -40,16 +40,21 @@ cd ~/Documents/home/vscode-notebook-cell-id
 npm install
 ```
 
-## 2. Put it on GitHub
+## 2. Make the GitHub repo public — only when you publish
 
-`package.json` already points at `https://github.com/hannody/vscode-notebook-cell-id`.
-Create that repo (or change the `repository` and `bugs` URLs to wherever it really lives —
-a wrong URL there produces a broken link on your Marketplace page), then:
+The repo exists and is pushed, but it is **private**, and `package.json` points its
+`repository` and `bugs` fields at it. That is fine while the extension is unpublished. The
+moment you publish, those URLs become links on your Marketplace listing and will 404 for
+everyone who is not you, which reads as an abandoned project.
+
+So either flip it public at publish time:
 
 ```bash
-git remote add origin git@github.com:hannody/vscode-notebook-cell-id.git
-git push -u origin main
+gh repo edit hannody/vscode-notebook-cell-id --visibility public --accept-visibility-change-consequences
 ```
+
+or strip the `repository` and `bugs` fields from `package.json` and keep the source closed.
+`vsce` only warns about a missing repository, it does not refuse to package.
 
 ## 3. Create a Marketplace publisher
 

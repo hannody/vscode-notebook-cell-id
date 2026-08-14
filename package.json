@@ -1,9 +1,9 @@
 {
   "name": "notebook-cell-id",
   "displayName": "Notebook Cell Id",
-  "description": "Shows each notebook cell's nbformat id in its status bar. Click to copy.",
+  "description": "Shows each notebook cell's nbformat id in its status bar, so you can tell your coding agent \"fix cell e66c99c5\" — more accurate and token-efficient than pasting the cell. Click to copy.",
   "version": "0.1.2",
-  "publisher": "hannody",
+  "publisher": "Mohanad-Abu-Nayla",
   "license": "MIT",
   "icon": "icon.png",
   "repository": {
@@ -25,7 +25,9 @@
     "jupyter",
     "ipynb",
     "cell id",
-    "nbformat"
+    "nbformat",
+    "coding agent",
+    "ai"
   ],
   "main": "./extension.js",
   "activationEvents": [

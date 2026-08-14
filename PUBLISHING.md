@@ -17,11 +17,8 @@ Done:
 
 Not done, because it needs you:
 
-- **Node is not installed on this machine.** `vsce` is a Node CLI, so nothing was packaged
-  or validated here. `sudo apt install nodejs npm` (Ubuntu ships v22, which is fine) or use
-  nvm.
-- `publisher` in `package.json` is set to `hannody` as a guess — it must match the
-  Marketplace publisher you create, exactly.
+- `publisher` in `package.json` is set to `Mohanad-Abu-Nayla` — the Marketplace publisher
+  you create must use exactly that ID.
 - No screenshot in the README. Worth adding before you publish; a single PNG of a cell
   showing the badge sells this better than any paragraph.
 
@@ -91,7 +88,7 @@ few dozen KB.
 ## 5. Publish
 
 ```bash
-npx vsce login hannody   # paste the PAT
+npx vsce login Mohanad-Abu-Nayla   # paste the PAT
 npx vsce publish
 ```
 
@@ -106,8 +103,8 @@ VSCodium, Cursor, Windsurf, and Gitpod do not use Microsoft's Marketplace; they 
 about five minutes, and roughly doubles the audience that can install this.
 
 ```bash
-npx ovsx create-namespace hannody -p <open-vsx-token>
-npx ovsx publish notebook-cell-id-0.1.0.vsix -p <open-vsx-token>
+npx ovsx create-namespace Mohanad-Abu-Nayla -p <open-vsx-token>
+npx ovsx publish notebook-cell-id-0.1.2.vsix -p <open-vsx-token>
 ```
 
 ## Gotchas worth knowing

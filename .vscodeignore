@@ -1,4 +1,6 @@
 .vscode/**
+.claude/**
+media/**
 .github/**
 node_modules/**
 .git/**

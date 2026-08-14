@@ -1,8 +1,26 @@
 # Notebook Cell Id
 
-VS Code doesn't surface the nbformat `id` of a notebook cell anywhere in its UI. This
-extension puts it in each cell's status bar and makes it one click to copy — useful when
-you need to point a tool, a coding agent, or another person at one specific cell.
+Point your coding agent at an exact notebook cell: **"Review cell e66c99c5"**,
+**"Fix cell 8d3f2a1c"**.
+
+Every cell since nbformat 4.5 carries a stable `id`, but VS Code doesn't surface it
+anywhere in its UI. This extension puts it in each cell's status bar and makes it one
+click to copy.
+
+![A notebook in VS Code with each cell's nbformat id shown in its status bar; the badge of one cell is highlighted](media/screenshot.png)
+
+## Why
+
+When you ask an agent (or a colleague) to fix or review one cell, referencing it by id
+beats every alternative:
+
+- **Accurate.** The badge shows the same `id` field the agent sees when it opens the
+  `.ipynb` JSON, so the reference resolves to exactly one cell. Ids survive re-ordering,
+  inserting, and deleting cells — "the third code cell" and `cell 3` don't.
+- **Token-efficient.** 8 characters instead of pasting the cell's whole contents into
+  the chat to identify it.
+- **Round-trippable.** VS Code's `ipynb` serializer preserves ids on save, so the id you
+  copied yesterday still points at the same cell today.
 
 ## Features
 

@@ -70,8 +70,6 @@ directory and reload the window:
 ln -sfn "$PWD" ~/.vscode/extensions/local.notebook-cell-id-0.1.0
 ```
 
-See [PUBLISHING.md](PUBLISHING.md) for release steps.
-
 ## License
 
 MIT

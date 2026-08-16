@@ -30,6 +30,11 @@ beats every alternative:
   nothing to the cell toolbar or its `...` menu — those stay exactly as VS Code ships them):
   - **Notebook: Copy Cell Id** → `e66c99c5`
   - **Notebook: Copy Cell Id with Notebook Path** → `article_mat/v2_nb/step_3_.ipynb cell e66c99c5`
+  - **Notebook: Find Cell by Id** → prompts for an id, then selects and scrolls to that
+    cell. Bound to <kbd>Ctrl+Alt+F</kbd> (<kbd>Cmd+Alt+F</kbd> on macOS) while a notebook
+    is focused — <kbd>Ctrl+F</kbd> is left alone since VS Code uses it for the built-in
+    text find widget. Also available as a search icon button in the notebook's top
+    toolbar, next to `+Code` / `+Markdown`.
 
 ## Settings
 
@@ -54,21 +59,7 @@ value under `metadata.custom.id`; both are checked.
 
 ## Development
 
-```bash
-git clone https://github.com/hannody/vscode-notebook-cell-id.git
-cd vscode-notebook-cell-id
-npm install          # only needed for the vsce/type devDependencies
-```
-
-Press <kbd>F5</kbd> in VS Code to launch an Extension Development Host with the extension
-loaded, then open any `.ipynb`. Plain JavaScript, no build step.
-
-To run it in your day-to-day VS Code instead, symlink the folder into your extensions
-directory and reload the window:
-
-```bash
-ln -sfn "$PWD" ~/.vscode/extensions/local.notebook-cell-id-0.1.0
-```
+See [DEVELOPMENT.md](DEVELOPMENT.md) for how to run and test this locally.
 
 ## License
 

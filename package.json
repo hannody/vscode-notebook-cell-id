@@ -2,7 +2,7 @@
   "name": "notebook-cell-id",
   "displayName": "Notebook Cell Id",
   "description": "Shows each notebook cell's nbformat id in its status bar, so you can tell your coding agent \"fix cell e66c99c5\" — more accurate and token-efficient than pasting the cell. Click to copy.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "publisher": "Mohanad-Abu-Nayla",
   "license": "MIT",
   "icon": "icon.png",
@@ -44,8 +44,31 @@
         "command": "notebookCellId.copyWithPath",
         "title": "Copy Cell Id with Notebook Path",
         "category": "Notebook"
+      },
+      {
+        "command": "notebookCellId.findById",
+        "title": "Find Cell by Id",
+        "category": "Notebook",
+        "icon": "$(search)"
       }
     ],
+    "keybindings": [
+      {
+        "command": "notebookCellId.findById",
+        "key": "ctrl+alt+f",
+        "mac": "cmd+alt+f",
+        "when": "notebookEditorFocused"
+      }
+    ],
+    "menus": {
+      "notebook/toolbar": [
+        {
+          "command": "notebookCellId.findById",
+          "group": "navigation",
+          "when": "notebookType == jupyter-notebook || notebookType == interactive"
+        }
+      ]
+    },
     "configuration": {
       "title": "Notebook Cell Id",
       "properties": {
@@ -68,11 +91,16 @@
     }
   },
   "scripts": {
+    "test:unit": "node --test test/unit/**/*.test.js",
+    "test:integration": "vscode-test",
+    "test": "npm run test:unit && npm run test:integration",
     "package": "vsce package",
     "publish": "vsce publish"
   },
   "devDependencies": {
     "@types/vscode": "^1.90.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
     "@vscode/vsce": "^3.2.0"
   }
 }

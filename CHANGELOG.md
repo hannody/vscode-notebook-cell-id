@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3] - 2026-08-16
+
+- Add `Notebook: Find Cell by Id` command, bound to `Ctrl+Alt+F` / `Cmd+Alt+F` while a
+  notebook is focused. Prompts for an id and selects + reveals the matching cell.
+- Add a search icon button for it to the notebook's top toolbar (next to `+Code`,
+  `+Markdown`).
+
 ## [0.1.2] - 2026-08-13
 
 - Contribute nothing to the notebook cell menus. The cell toolbar and its `...` menu are

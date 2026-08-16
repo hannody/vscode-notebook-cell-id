@@ -1,17 +1,7 @@
 const vscode = require('vscode');
+const { cellId, formatLabel } = require('./cellHelpers');
 
 const NOTEBOOK_TYPES = ['jupyter-notebook', 'interactive'];
-
-/**
- * VS Code's built-in ipynb serializer stores the nbformat 4.5 cell id flat on
- * the cell metadata (see extensions/ipynb notebookSerializerWorker.js, which
- * writes `n.id = a.id` from getCellMetadata). Older builds nested it under
- * `custom`, so check both.
- */
-function cellId(cell) {
-  const md = cell.metadata || {};
-  return md.id || (md.custom && md.custom.id) || undefined;
-}
 
 function shortPath(notebook) {
   const rel = vscode.workspace.asRelativePath(notebook.uri, false);
@@ -49,14 +39,7 @@ class CellIdStatusBarProvider {
     }
 
     const label = config.get('statusBarLabel', 'index-and-id');
-    let text;
-    if (label === 'index') {
-      text = `#${cell.index}`;
-    } else if (label === 'id') {
-      text = id;
-    } else {
-      text = `#${cell.index} ${id}`;
-    }
+    const text = formatLabel(cell.index, id, label);
 
     const item = new vscode.NotebookCellStatusBarItem(
       `$(copy) ${text}`,
@@ -98,9 +81,36 @@ function activate(context) {
     vscode.window.setStatusBarMessage(`Copied: ${text}`, 3000);
   };
 
+  const findById = async () => {
+    const editor = vscode.window.activeNotebookEditor;
+    if (!editor) {
+      vscode.window.showWarningMessage('No active notebook.');
+      return;
+    }
+
+    const id = await vscode.window.showInputBox({
+      prompt: 'Enter the nbformat cell id to find',
+      placeHolder: 'e.g. a1b2c3d4',
+    });
+    if (!id) {
+      return;
+    }
+
+    const target = editor.notebook.getCells().find((cell) => cellId(cell) === id);
+    if (!target) {
+      vscode.window.showWarningMessage(`No cell found with id "${id}".`);
+      return;
+    }
+
+    const range = new vscode.NotebookRange(target.index, target.index + 1);
+    editor.selections = [range];
+    editor.revealRange(range, vscode.NotebookEditorRevealType.InCenter);
+  };
+
   context.subscriptions.push(
     vscode.commands.registerCommand('notebookCellId.copy', (arg) => copy(arg, false)),
-    vscode.commands.registerCommand('notebookCellId.copyWithPath', (arg) => copy(arg, true))
+    vscode.commands.registerCommand('notebookCellId.copyWithPath', (arg) => copy(arg, true)),
+    vscode.commands.registerCommand('notebookCellId.findById', findById)
   );
 }
 

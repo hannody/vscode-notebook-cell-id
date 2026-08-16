@@ -1,6 +1,8 @@
 .vscode/**
 .claude/**
 media/**
+.vscode-test/**
+.vscode-test.mjs
 .github/**
 node_modules/**
 .git/**
@@ -8,4 +10,5 @@ node_modules/**
 .vscodeignore
 jsconfig.json
 PUBLISHING.md
+test/**
 *.vsix

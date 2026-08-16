@@ -3,7 +3,7 @@ const vscode = require('vscode');
 
 suite('Extension', () => {
   test('activates and registers its commands', async () => {
-    const ext = vscode.extensions.getExtension('Mohanad-Abu-Nayla.notebook-cell-id');
+    const ext = vscode.extensions.getExtension('Mohand-Abu-Nayla.notebook-cell-id');
     assert.ok(ext, 'extension not found');
 
     await ext.activate();

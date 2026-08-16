@@ -12,3 +12,4 @@ jsconfig.json
 PUBLISHING.md
 test/**
 *.vsix
+demo.ipynb

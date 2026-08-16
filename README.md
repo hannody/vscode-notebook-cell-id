@@ -33,8 +33,10 @@ beats every alternative:
   - **Notebook: Find Cell by Id** → prompts for an id, then selects and scrolls to that
     cell. Bound to <kbd>Ctrl+Alt+F</kbd> (<kbd>Cmd+Alt+F</kbd> on macOS) while a notebook
     is focused — <kbd>Ctrl+F</kbd> is left alone since VS Code uses it for the built-in
-    text find widget. Also available as a search icon button in the notebook's top
-    toolbar, next to `+Code` / `+Markdown`.
+    text find widget. Also available as a button in the notebook's top toolbar, next to
+    `+Code` / `+Markdown`:
+
+    ![The notebook toolbar with a highlighted "Find Cell by Id" button between "Clear All Outputs" and "Outline"](media/find-cell-toolbar.png)
 
 ## Settings
 
